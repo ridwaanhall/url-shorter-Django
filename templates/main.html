@@ -40,6 +40,7 @@
         <link rel="stylesheet" href="{% static 'vendor/libs/node-waves/node-waves.css' %}" />
         <link rel="stylesheet" href="{% static 'vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
         <link rel="stylesheet" href="{% static 'vendor/libs/typeahead-js/typeahead.css' %}" />
+        <link rel="stylesheet" href="{% static 'vendor/libs/tagify/tagify.css' %}" />
         
         <!-- Vendor -->
         <link rel="stylesheet" href="{% static 'vendor/libs/@form-validation/umd/styles/index.min.css' %}" />
@@ -73,20 +74,7 @@
 
                             <h4 class="mb-1 pt-2">URL SHORTER</h4>
                             <p class="mb-4">Please sign-in to your account and start the adventure</p>
-
-                            <form id="formAuthentication" class="mb-3" action="#" method="POST">
-                                <div class="mb-3">
-                                    <label class="form-label" for="bs-validation-name">Name</label>
-                                      <input
-                                        type="text"
-                                        class="form-control"
-                                        id="bs-validation-name"
-                                        placeholder="John Doe"
-                                        required />
-                                      <div class="valid-feedback">Looks good!</div>
-                                      <div class="invalid-feedback">Please enter your name.</div>
-                                </div>
-                                
+                            <form class="mb-3 needs-validation" action="#" method="POST" novalidate>
                                 <div class="mb-3">
                                     <label 
                                         for="url" 
@@ -95,10 +83,13 @@
                                     <input 
                                         type="url" 
                                         class="form-control" 
-                                        id="url" 
-                                        name="url" 
-                                        placeholder="https://www.linkedin.com/in/ridwaanhall" autofocus 
+                                        id="url" name="url" 
+                                        placeholder="https://www.linkedin.com/in/ridwaanhall" 
+                                        autofocus 
                                     />
+                                    
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Please enter a valid URL.</div>
                                 </div>
                                 <div class="mb-3">
                                     <label 
@@ -151,5 +142,7 @@
 
         <!-- Page JS -->
         <script src="{% static 'js/pages-auth.js' %}"></script>
+        <script src="{% static 'js/form-validation.js' %}"></script>
+        <script src="{% static 'vendor/libs/tagify/tagify.js' %}"></script>
     </body>
 </html>
