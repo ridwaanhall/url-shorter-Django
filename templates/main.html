@@ -65,10 +65,28 @@
                 <div class="authentication-inner py-4">
                     <div class="card">
                         <div class="card-body">
+                            <div class="app-brand justify-content-center mb-4 mt-2">
+                                <a href="index.html" class="app-brand-link gap-2">
+                                    <span class="app-brand-text demo text-body fw-bold ms-1">Ridwaanhall</span>
+                                </a>
+                            </div>
+
                             <h4 class="mb-1 pt-2">URL SHORTER</h4>
                             <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
                             <form id="formAuthentication" class="mb-3" action="#" method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label" for="bs-validation-name">Name</label>
+                                      <input
+                                        type="text"
+                                        class="form-control"
+                                        id="bs-validation-name"
+                                        placeholder="John Doe"
+                                        required />
+                                      <div class="valid-feedback">Looks good!</div>
+                                      <div class="invalid-feedback">Please enter your name.</div>
+                                </div>
+                                
                                 <div class="mb-3">
                                     <label 
                                         for="url" 
@@ -79,7 +97,7 @@
                                         class="form-control" 
                                         id="url" 
                                         name="url" 
-                                        placeholder="Enter URL" autofocus 
+                                        placeholder="https://www.linkedin.com/in/ridwaanhall" autofocus 
                                     />
                                 </div>
                                 <div class="mb-3">
@@ -92,12 +110,12 @@
                                         id="short_url" 
                                         class="form-control" 
                                         name="short_url" 
-                                        placeholder="Enter short URL" 
+                                        placeholder="XeFgYh" 
                                     />
                                 </div>
                                 
                                 <div class="mb-3">
-                                    <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                    <button class="btn btn-primary d-grid w-100" type="submit">Generate URL</button>
                                 </div>
                             </form>
                         </div>
