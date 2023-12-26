@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html 
     lang="en" 
-    class="dark-style customizer-hide" 
+    class="dark-style layout-menu-fixed" 
     dir="ltr" 
     data-theme="theme-default" 
     data-assets-path="{% static '' %}" 
-    data-template="horizontal-menu-template">
+    data-template="vertical-menu-template-no-customizer">
     
     <head>
         <meta charset="utf-8" />
-        <meta 
-            name="viewport" 
-            content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-        <title>URL</title>
+        <title>Validation - Forms | Vuexy - Bootstrap Admin Template</title>
 
         <meta name="description" content="" />
 
@@ -40,14 +39,14 @@
         <link rel="stylesheet" href="{% static 'vendor/libs/node-waves/node-waves.css' %}" />
         <link rel="stylesheet" href="{% static 'vendor/libs/perfect-scrollbar/perfect-scrollbar.css' %}" />
         <link rel="stylesheet" href="{% static 'vendor/libs/typeahead-js/typeahead.css' %}" />
+        <link rel="stylesheet" href="{% static 'vendor/libs/bootstrap-select/bootstrap-select.css' %}" />
+        <link rel="stylesheet" href="{% static 'vendor/libs/select2/select2.css' %}" />
+        <link rel="stylesheet" href="{% static 'vendor/libs/flatpickr/flatpickr.css' %}" />
+        <link rel="stylesheet" href="{% static 'vendor/libs/typeahead-js/typeahead.css' %}" />
         <link rel="stylesheet" href="{% static 'vendor/libs/tagify/tagify.css' %}" />
-        
-        <!-- Vendor -->
         <link rel="stylesheet" href="{% static 'vendor/libs/@form-validation/umd/styles/index.min.css' %}" />
 
         <!-- Page CSS -->
-        <!-- Page -->
-        <link rel="stylesheet" href="{% static 'vendor/css/pages/page-auth.css' %}" />
 
         <!-- Helpers -->
         <script src="{% static 'vendor/js/helpers.js' %}"></script>
@@ -59,63 +58,181 @@
     </head>
 
     <body>
-        <!-- Content -->
+        <!-- Layout wrapper -->
+        <div class="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
+            <div class="layout-container">
 
-        <div class="container-xxl">
-            <div class="authentication-wrapper authentication-basic container-p-y">
-                <div class="authentication-inner py-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="app-brand justify-content-center mb-4 mt-2">
-                                <a href="index.html" class="app-brand-link gap-2">
-                                    <span class="app-brand-text demo text-body fw-bold ms-1">Ridwaanhall</span>
+                <!-- Layout container -->
+                <div class="layout-page">
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper">
+
+                        <!-- Navbar -->
+
+                        <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+                            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+                                <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                                    <i class="ti ti-menu-2 ti-sm"></i>
                                 </a>
                             </div>
 
-                            <h4 class="mb-1 pt-2">URL SHORTER</h4>
-                            <p class="mb-4">Please sign-in to your account and start the adventure</p>
-                            <form class="mb-3 needs-validation" action="#" method="POST" novalidate>
-                                <div class="mb-3">
-                                    <label 
-                                        for="url" 
-                                        class="form-label">URL
-                                    </label>
-                                    <input 
-                                        type="url" 
-                                        class="form-control" 
-                                        id="url" name="url" 
-                                        placeholder="https://www.linkedin.com/in/ridwaanhall" 
-                                        autofocus 
-                                    />
-                                    
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid URL.</div>
+                            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+
+                                <ul class="navbar-nav flex-row align-items-center ms-auto">
+
+                                    <!-- Style Switcher -->
+                                    <li class="nav-item dropdown-style-switcher dropdown me-2 me-xl-0">
+                                        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                                            <i class="ti ti-md"></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-end dropdown-styles">
+                                            <li>
+                                                <a class="dropdown-item" href="javascript:void(0);" data-theme="light">
+                                                    <span class="align-middle"><i class="ti ti-sun me-2"></i>Light</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="javascript:void(0);" data-theme="dark">
+                                                    <span class="align-middle"><i class="ti ti-moon me-2"></i>Dark</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="javascript:void(0);" data-theme="system">
+                                                    <span class="align-middle"><i class="ti ti-device-desktop me-2"></i>System</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!-- / Style Switcher-->
+
+                                </ul>
+                            </div>
+
+                        </nav>
+
+                        <!-- / Navbar -->
+
+
+                        <!-- Content -->
+
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <div class="row mb-4">
+
+                                <!-- Bootstrap Validation -->
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-title header-elements">
+                                                <h5 class="m-0 me-2">Card Title</h5>
+                                            </div>
+
+                                            <form class="needs-validation" novalidate>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bs-validation-name">Name</label>
+                                                    <input type="text" class="form-control" id="bs-validation-name" placeholder="John Doe" required />
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                    <div class="invalid-feedback">Please enter your name.</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bs-validation-email">Email</label>
+                                                    <input type="email" id="bs-validation-email" class="form-control" placeholder="john.doe" aria-label="john.doe" required />
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                    <div class="invalid-feedback">Please enter a valid email</div>
+                                                </div>
+                                                <div class="mb-3 form-password-toggle">
+                                                    <label class="form-label" for="bs-validation-password">Password</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <input type="password" id="bs-validation-password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" required />
+                                                        <span class="input-group-text cursor-pointer" id="basic-default-password4"><i class="ti ti-eye-off"></i></span>
+                                                    </div>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                    <div class="invalid-feedback">Please enter your password.</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bs-validation-country">Country</label>
+                                                    <select class="form-select" id="bs-validation-country" required>
+                                                        <option value="">Select Country</option>
+                                                        <option value="usa">USA</option>
+                                                        <option value="uk">UK</option>
+                                                        <option value="france">France</option>
+                                                        <option value="australia">Australia</option>
+                                                        <option value="spain">Spain</option>
+                                                    </select>
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                    <div class="invalid-feedback">Please select your country</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bs-validation-dob">DOB</label>
+                                                    <input type="text" class="form-control flatpickr-validation" id="bs-validation-dob" required />
+                                                    <div class="valid-feedback">Looks good!</div>
+                                                    <div class="invalid-feedback">Please Enter Your DOB</div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bs-validation-upload-file">Profile pic</label>
+                                                    <input type="file" class="form-control" id="bs-validation-upload-file" required />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="d-block form-label">Gender</label>
+                                                    <div class="form-check mb-2">
+                                                        <input type="radio" id="bs-validation-radio-male" name="bs-validation-radio" class="form-check-input" required />
+                                                        <label class="form-check-label" for="bs-validation-radio-male">Male</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input type="radio" id="bs-validation-radio-female" name="bs-validation-radio" class="form-check-input" required />
+                                                        <label class="form-check-label" for="bs-validation-radio-female">Female</label>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label" for="bs-validation-bio">Bio</label>
+                                                    <textarea class="form-control" id="bs-validation-bio" name="bs-validation-bio" rows="3" required></textarea>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" class="form-check-input" id="bs-validation-checkbox" required />
+                                                        <label class="form-check-label" for="bs-validation-checkbox">Agree to our terms and conditions</label>
+                                                        <div class="invalid-feedback">You must agree before submitting.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="switch switch-primary">
+                                                        <input type="checkbox" class="switch-input" required />
+                                                        <span class="switch-toggle-slider">
+                                                            <span class="switch-on"></span>
+                                                            <span class="switch-off"></span>
+                                                        </span>
+                                                        <span class="switch-label">Send me related emails</span>
+                                                    </label>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label 
-                                        class="form-label" 
-                                        for="short_url">Short URL
-                                    </label>
-                                    <input 
-                                        type="text" 
-                                        id="short_url" 
-                                        class="form-control" 
-                                        name="short_url" 
-                                        placeholder="XeFgYh" 
-                                    />
-                                </div>
-                                
-                                <div class="mb-3">
-                                    <button class="btn btn-primary d-grid w-100" type="submit">Generate URL</button>
-                                </div>
-                            </form>
+                                <!-- /Bootstrap Validation -->
+                            </div>
                         </div>
+                        <!--/ Content -->
+
+                        <div class="content-backdrop fade"></div>
                     </div>
+                    <!--/ Content wrapper -->
                 </div>
+
+                <!--/ Layout container -->
             </div>
         </div>
 
-        <!-- / Content -->
+        <!-- Overlay -->
+        <div class="layout-overlay layout-menu-toggle"></div>
+
+        <!-- Drag Target Area To SlideIn Menu On Small Screens -->
+        <div class="drag-target"></div>
+
+        <!--/ Layout wrapper -->
 
         <!-- Core JS -->
         <!-- build:js assets/vendor/js/core.js -->
@@ -133,6 +250,12 @@
         <!-- endbuild -->
 
         <!-- Vendors JS -->
+        <script src="{% static 'vendor/libs/select2/select2.js' %}"></script>
+        <script src="{% static 'vendor/libs/bootstrap-select/bootstrap-select.js' %}"></script>
+        <script src="{% static 'vendor/libs/moment/moment.js' %}"></script>
+        <script src="{% static 'vendor/libs/flatpickr/flatpickr.js' %}"></script>
+        <script src="{% static 'vendor/libs/typeahead-js/typeahead.js' %}"></script>
+        <script src="{% static 'vendor/libs/tagify/tagify.js' %}"></script>
         <script src="{% static 'vendor/libs/@form-validation/umd/bundle/popular.min.js' %}"></script>
         <script src="{% static 'vendor/libs/@form-validation/umd/plugin-bootstrap5/index.min.js' %}"></script>
         <script src="{% static 'vendor/libs/@form-validation/umd/plugin-auto-focus/index.min.js' %}"></script>
@@ -141,8 +264,6 @@
         <script src="{% static 'js/main.js' %}"></script>
 
         <!-- Page JS -->
-        <script src="{% static 'js/pages-auth.js' %}"></script>
         <script src="{% static 'js/form-validation.js' %}"></script>
-        <script src="{% static 'vendor/libs/tagify/tagify.js' %}"></script>
     </body>
 </html>
